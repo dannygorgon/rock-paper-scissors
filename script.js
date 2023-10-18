@@ -9,14 +9,17 @@ const scissorsButton = document.getElementById("scissors-button");
 
 rockButton.addEventListener("click", function() {
     console.log("I am a rock")
+    leftImage.src = "rock.png"
 })
 
 paperButton.addEventListener("click", function() {
     console.log("I am some paper")
+    leftImage.src = "paper.png"
 })
 
 scissorsButton.addEventListener("click", function() {
     console.log("I am some scissors")
+    leftImage.src = "scissors.png"
 })
 
 
