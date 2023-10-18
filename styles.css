@@ -11,15 +11,25 @@ h1 {
     font-size: 8rem;
 }
 
+h2 {
+    font-family: 'VT323', monospace,'Outfit', sans-serif;
+    color: red;
+    display: flex;
+    font-size: 4rem;
+}
+
 .buttons-container {
     display: flex;
     justify-content: center;
 
 }
 
+
 .img-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
 }
 
 button {
