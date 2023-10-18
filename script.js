@@ -6,3 +6,17 @@ const rightImage = document.getElementById("right-image");
 const rockButton = document.getElementById("rock-button");
 const paperButton = document.getElementById("paper-button");
 const scissorsButton = document.getElementById("scissors-button");
+
+rockButton.addEventListener("click", function() {
+    console.log("I am a rock")
+})
+
+paperButton.addEventListener("click", function() {
+    console.log("I am some paper")
+})
+
+scissorsButton.addEventListener("click", function() {
+    console.log("I am some scissors")
+})
+
+
