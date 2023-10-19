@@ -4,68 +4,66 @@
   background-color: black;
 }
 
-h1 {
+h1, h2, h4 {
   font-family: "VT323", monospace, "Outfit", sans-serif;
   color: red;
+}
+
+h1 {
   text-align: center;
-  font-size: 8rem;
+  font-size: 7rem;
 }
 
 h2 {
-  font-family: "VT323", monospace, "Outfit", sans-serif;
-  color: red;
   display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 4rem;
 }
 
 h4 {
-  font-family: "VT323", monospace, "Outfit", sans-serif;
-  color: red;
   font-size: 2rem;
 }
 
-.status-container {
-    display: flex;
-    text-align: center;
-    justify-content: center;
+p {
+  color: white;
+  background-color: red;
+}
+
+.status-container, .buttons-container, .img-container, .start-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttons-container {
-  display: flex;
-  flex-wrap: wrap; /* Allow buttons to wrap to the next line */
-  justify-content: center; /* Center buttons horizontally */
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .img-container {
-  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 3rem;
 }
 
 .start-container {
-  display: flex;
   justify-content: space-evenly;
-  align-items: center; /* Center items vertically */
+  align-items: center;
   text-align: center;
 }
-.start-button {
-  margin-top: 1rem;
-  width: 200px; /* Adjust the width as needed */
-  background-color: red; /* Set the background color to red */
-  color: white; /* Set the text color to white */
-  padding: 1rem 2rem; /* Add padding for better appearance */
-  border: none;
-  border-radius: 0.2rem;
-  cursor: pointer;
-}
 
-button {
+.start-button, button {
   padding: 2rem;
   border: none;
   border-radius: 0.2rem;
   cursor: pointer;
-  background-color: white;
-  display: inline-flex;
-  margin: 4rem;
+  background-color: red;
+  color: white;
+  margin: 10px;
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
