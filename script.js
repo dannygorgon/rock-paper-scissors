@@ -52,13 +52,15 @@ startButton.addEventListener("click", function () {
 
 function getComputerChoice() {
   const computerSelection = options[Math.floor(Math.random() * options.length)];
-  console.log(computerSelection);
-
+  computerSelectionImage(computerSelection)
   return computerSelection;
 }
 
-function computerSelectionImage(){
-
+function computerSelectionImage(computerSelection){
+    computerSelection === "rock" ? rightImage.src = "rock.png" : 
+    computerSelection === "paper" ? rightImage.src = "paper.png" : 
+    computerSelection === "scissors" ? rightImage.src = "scissors.png" : 
+    rightImage.src = "default.png";
 }
 
 
