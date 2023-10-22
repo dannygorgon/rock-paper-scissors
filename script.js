@@ -2,45 +2,41 @@
 const leftImage = document.getElementById("left-image");
 const rightImage = document.getElementById("right-image");
 
-//buttons with listener ids
+// buttons with listener ids
 const rockButton = document.getElementById("rock-button");
 const paperButton = document.getElementById("paper-button");
 const scissorsButton = document.getElementById("scissors-button");
 const changeText = document.querySelector("#change-text");
 const startButton = document.getElementById("start-button");
 
-//game logic
+// game logic
 const options = ["rock", "paper", "scissors"];
-
-
-//computer logic
-
-const imageArray = ["rock.png", "paper.png", "scissors.png"]
 
 rockButton.addEventListener("click", function () {
   console.log("I am a rock");
   leftImage.src = "rock.png";
   const playerSelection = options[0];
-  changeText.textContent = `${playerSelection}`;
-  getComputerChoice();
+  const computerSelection = getComputerChoice();
+
+  changeText.textContent = `${playerSelection} + ${computerSelection}`;
+
 });
 
 paperButton.addEventListener("click", function () {
   console.log("I am some paper");
   leftImage.src = "paper.png";
   const playerSelection = options[1];
-  changeText.textContent = `${playerSelection}`;
+  const computerSelection = getComputerChoice();
 
-  getComputerChoice();
+  changeText.textContent = `${playerSelection} + ${computerSelection}`;;
 });
 
 scissorsButton.addEventListener("click", function () {
   console.log("I am some scissors");
   leftImage.src = "scissors.png";
   const playerSelection = options[2];
-  changeText.textContent = `${playerSelection}`;
-
-  getComputerChoice();
+  const computerSelection = getComputerChoice();
+  changeText.textContent = `${playerSelection} + ${computerSelection}`;
 });
 
 startButton.addEventListener("click", function () {
@@ -52,16 +48,24 @@ startButton.addEventListener("click", function () {
 
 function getComputerChoice() {
   const computerSelection = options[Math.floor(Math.random() * options.length)];
-  computerSelectionImage(computerSelection)
+  computerSelectionImage(computerSelection);
+  computerSelectionText(computerSelection);
   return computerSelection;
 }
 
-function computerSelectionImage(computerSelection){
-    computerSelection === "rock" ? rightImage.src = "rock.png" : 
-    computerSelection === "paper" ? rightImage.src = "paper.png" : 
-    computerSelection === "scissors" ? rightImage.src = "scissors.png" : 
-    rightImage.src = "default.png";
+function computerSelectionImage(computerSelection) {
+  rightImage.src = computerSelection + ".png";
 }
 
+function computerSelectionText(computerSelection) {
+  let computerChoiceText = "";
+  if (computerSelection === "rock") {
+    computerChoiceText = "rock";
+  } else if (computerSelection === "paper") {
+    computerChoiceText = "paper";
+  } else if (computerSelection === "scissors") {
+    computerChoiceText = "scissors";
+  }
 
-function startGame() {}
+  return computerChoiceText;
+}
