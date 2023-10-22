@@ -17,8 +17,13 @@ rockButton.addEventListener("click", function () {
   leftImage.src = "rock.png";
   const playerSelection = options[0];
   const computerSelection = getComputerChoice();
+  const resultMessage = 
+  playerSelection === "rock" && computerSelection === "rock" ? "It's a draw!":
+  playerSelection === "rock" && computerSelection === "paper" ? "Computer wins!!" :
+  playerSelection === "rock" && computerSelection === "scissors" ?  "Player wins!!":
+  "";
 
-  changeText.textContent = `${playerSelection} + ${computerSelection}`;
+changeText.textContent = resultMessage;
 
 });
 
@@ -27,17 +32,30 @@ paperButton.addEventListener("click", function () {
   leftImage.src = "paper.png";
   const playerSelection = options[1];
   const computerSelection = getComputerChoice();
+  const resultMessage = 
+  playerSelection === "paper" && computerSelection === "rock" ? "Player wins!!":
+  playerSelection === "paper" && computerSelection === "paper" ? "It's a draw!" :
+  playerSelection === "paper" && computerSelection === "scissors" ? "Computer wins!!" :
+  "";
 
-  changeText.textContent = `${playerSelection} + ${computerSelection}`;;
+changeText.textContent = resultMessage;
 });
 
 scissorsButton.addEventListener("click", function () {
-  console.log("I am some scissors");
-  leftImage.src = "scissors.png";
-  const playerSelection = options[2];
-  const computerSelection = getComputerChoice();
-  changeText.textContent = `${playerSelection} + ${computerSelection}`;
-});
+    console.log("I am some scissors");
+    leftImage.src = "scissors.png";
+    const playerSelection = options[2];
+    const computerSelection = getComputerChoice();
+  
+    const resultMessage = 
+      playerSelection === "scissors" && computerSelection === "rock" ? "Computer wins!!" :
+      playerSelection === "scissors" && computerSelection === "paper" ? "Player wins!!" :
+      playerSelection === "scissors" && computerSelection === "scissors" ? "It's a draw!!" :
+      "";
+  
+    changeText.textContent = resultMessage;
+  });
+  
 
 startButton.addEventListener("click", function () {
   console.log("Let the games begin");
@@ -50,6 +68,7 @@ function getComputerChoice() {
   const computerSelection = options[Math.floor(Math.random() * options.length)];
   computerSelectionImage(computerSelection);
   computerSelectionText(computerSelection);
+
   return computerSelection;
 }
 
