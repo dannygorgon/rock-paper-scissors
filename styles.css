@@ -30,7 +30,7 @@ p {
   background-color: red;
 }
 
-.status-container, .buttons-container, .img-container, .start-container {
+.status-container, .buttons-container, .img-container, .start-container, .score-container {
   display: flex;
   justify-content: center;
   align-items: center;
