@@ -12,52 +12,39 @@ const startButton = document.getElementById("start-button");
 const changeText = document.querySelector("#change-text");
 const changeScore = document.querySelector("#score-text");
 
-// Computer choice array
-const options = ["rock", "paper", "scissors"];
 
 //Scores and maxScore
 let playerScore = 0;
 let computerScore = 0;
 const maxScore = 5;
 
-rockButton.addEventListener("click", function () {
-  if (playerScore < maxScore && computerScore < maxScore) { // if maxScore not reached
-    leftImage.src = "rock.png"; // change the left image
-    const playerSelection = options[0]; // store player selection
-    const computerSelection = getComputerChoice(); // call and store computerSelection
-    playRound(playerSelection, computerSelection); // output the choices to playRound
-    updateScore(); // if maxScore not reached, update score
-  }
-  checkGameEnd(); // cakl and check endGame state
-});
 
-paperButton.addEventListener("click", function () {
-  if (playerScore < maxScore && computerScore < maxScore) {
-    leftImage.src = "paper.png";
-    const playerSelection = options[1];
-    const computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
-    updateScore();
-  }
-  checkGameEnd();
-});
 
-scissorsButton.addEventListener("click", function () {
-  if (playerScore < maxScore && computerScore < maxScore) {
-    leftImage.src = "scissors.png";
-    const playerSelection = options[2];
-    const computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
-    updateScore();
+function selectionClickListener(playerSelectionIndex){
+  return function() {
+    if (playerScore < maxScore && computerScore < maxScore) {
+      // Computer choice array
+const options = ["rock", "paper", "scissors"];
+const playerSelection = options[playerSelectionIndex]
+leftImage.src = `${playerSelection}.png`
+const computerSelection = getComputerChoice()
+playRound(playerSelection, computerSelection)
+updateScore()
+    }
+    checkGameEnd();
+
   }
-  checkGameEnd();
-});
+}
+rockButton.addEventListener("click", selectionClickListener(0));
+paperButton.addEventListener("click", selectionClickListener(1));
+scissorsButton.addEventListener("click", selectionClickListener(2));
 
 startButton.addEventListener("click", function () {
   resetGame(); // Reset game
 });
 
 function getComputerChoice() {
+  const options = ["rock", "paper", "scissors"];
   const computerSelection = options[Math.floor(Math.random() * options.length)]; // random computer choice
   rightImage.src = computerSelection + ".png"; // change image to reflect computer choice
   return computerSelection; //o
